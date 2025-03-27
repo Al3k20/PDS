@@ -1,1 +1,19 @@
-https://www.tutorialspoint.com/compilers/online-fortran-compiler.htm
+PROGRAM SomaNumeros
+    IMPLICIT NONE
+    INTEGER :: num1, num2, soma
+
+    ! Solicitar ao usuário dois números
+    PRINT *, "Digite o primeiro número: "
+    READ *, num1
+
+    PRINT *, "Digite o segundo número: "
+    READ *, num2
+
+    ! Realizar a soma
+    soma = num1 + num2
+
+    ! Exibir o resultado
+    PRINT *, "A soma de", num1, "e", num2, "é:", soma
+
+END PROGRAM SomaNumeros
+
