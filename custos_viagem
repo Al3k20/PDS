@@ -1,0 +1,35 @@
+class Veiculo:
+    def __init__(self, modelo, consumo_por_km, custo_por_litro):
+        self.modelo = modelo
+        self.consumo_por_km = consumo_por_km  # Litros por km
+        self.custo_por_litro = custo_por_litro  # Preço por litro de combustível
+
+    def calcular_custo_viagem(self, distancia):
+        return distancia * self.consumo_por_km * self.custo_por_litro
+
+class Carro(Veiculo):
+    pass
+
+class Moto(Veiculo):
+    pass
+
+class Caminhao(Veiculo):
+    pass
+
+def calcular_custo_total(veiculos, distancia):
+    custo_total = 0
+    for veiculo in veiculos:
+        custo_total += veiculo.calcular_custo_viagem(distancia)
+    return custo_total
+
+# Criando veículos com diferentes consumos e preços de combustível
+veiculos = [
+    Carro("Sedan", 0.08, 6.50),
+    Moto("Esportiva", 0.05, 6.50),
+    Caminhao("Caminhão médio", 0.25, 6.50)
+]
+
+distancia_viagem = 200  # Distância da viagem em km
+custo_total = calcular_custo_total(veiculos, distancia_viagem)
+
+print(f"Custo total da viagem de {distancia_viagem} km: R$ {custo_total:.2f}")
