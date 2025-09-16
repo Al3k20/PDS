@@ -20,6 +20,10 @@ print(f"Cliente: {cliente['nome']} (ID: {cliente['id']})")
 
 # Exibe os pagamentos realizados pelo cliente
 print("Pagamentos:")
+total = 0  # Inicializa o total
 for pagamento in cliente["pagamentos"]:
-    # Para cada pagamento, imprime a descrição e o valor
-    print(f" - {pagamento['descricao']}: R$ {pagamento['valor']}")
+    print(f" - {pagamento['descricao']}: R$ {pagamento['valor']:.2f}")
+    total += pagamento["valor"]
+
+# Exibe o total gasto
+print(f"\nTotal gasto: R$ {total:.2f}")
