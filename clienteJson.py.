@@ -1,27 +1,34 @@
-# Importa a biblioteca JSON do Python
 import json
 
-# Define a classe cliente
+# Define a classe Cliente
 class Cliente:
-    def __init__(self, id, nome, email):
+    def __init__(self, id, nome, email, pagamentos=None):
         self.id = id
         self.nome = nome
         self.email = email
-        
-#Converte o objeto Cliente em um dicionário.
-#Isso facilita a serialização para JSON ou outros formatos.
+        self.pagamentos = pagamentos if pagamentos is not None else []
+
+    # Converte o objeto Cliente em um dicionário
     def to_dict(self):
         return {
             "id": self.id,
             "nome": self.nome,
-            "email": self.email
+            "email": self.email,
+            "pagamentos": self.pagamentos
         }
 
-# Crie um cliente
-cliente = Cliente(1, "Joaquim Silva", "joaquim@email.com")
+# Lista de pagamentos (cada pagamento é um dicionário)
+pagamentos_cliente = [
+    {"valor": 150.75, "data": "2025-09-01", "metodo": "cartão de crédito"},
+    {"valor": 89.90, "data": "2025-09-10", "metodo": "boleto"},
+    {"valor": 200.00, "data": "2025-09-15", "metodo": "pix"}
+]
 
-# Converta para JSON
-cliente_json = json.dumps(cliente.to_dict(), indent=4)
+# Cria o cliente com a lista de pagamentos
+cliente = Cliente(1, "Joaquim Silva", "joaquim@email.com", pagamentos_cliente)
 
-# Imprime os dados em formato JSON 
+# Converte para JSON
+cliente_json = json.dumps(cliente.to_dict(), indent=4, ensure_ascii=False)
+
+# Imprime os dados em formato JSON
 print(cliente_json)
