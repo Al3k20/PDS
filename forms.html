@@ -14,9 +14,19 @@
 
   <label for="listBoxClientes">Clientes:</label>
   <select id="listBoxClientes" size="5"></select>
-  <button onclick="buscarCliente()">Buscar Cliente</button>
+  <button id="btnBuscar">Buscar Cliente</button>
 
   <h3>Dados do Cliente</h3>
   <input type="text" id="txtNome" placeholder="Nome">
   <input type="text" id="txtEndereco" placeholder="Endereço">
   <input type="text" id="txtTelefone" placeholder="Telefone">
+  <input type="email" id="txtEmail" placeholder="Email">
+
+  <button id="btnIncluir">Incluir Cliente</button>
+  <button id="btnAlterar">Alterar Cliente</button>
+  <button id="btnLimpar">Limpar Campos</button>
+
+  <script>
+    class ClienteManager {
+      constructor() {
+        this
